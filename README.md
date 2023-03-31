@@ -1,12 +1,12 @@
-# kind
+# Kind
 kind is a tool for running local Kubernetes clusters using Docker container “nodes”.
 https://kind.sigs.k8s.io/
 
 ## Prerequisties
-- [Install Docker](./docs/DOCKER.md)
+- [WSL2](https://kind.sigs.k8s.io/docs/user/using-wsl2/#setting-up-wsl2)
+- [Docker](./docs/DOCKER.md)
 
-## Install
-https://kind.sigs.k8s.io/docs/user/quick-start/#installation
+## Kind Install
 ```bash
 # Install on Linux (WSL2 Ubuntu)
 curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.17.0/kind-linux-amd64
@@ -20,22 +20,22 @@ git clone https://bitbucket.forge.avaya.com/scm/metam/kind.git
 cd kind
 ```
 
-## Create cluster
+## Create local Kubernetes cluster
 ```bash
 ./kind-create.sh
 ```
 - [Install Docker](./docs/images/kind.png)
 
-## Connect to cluster
+## Connect to Kubernetes cluster
 ```bash
-# $HOME/.kube/config
+# Creates $HOME/.kube/config
 kubectl cluster-info --context kind-kind
 
 # (Optional) Export kubeconfig
 ./kind-kubeconfig.sh
 ```
 
-## Destroy cluster
+## Destroy Kubernetes cluster
 ```bash
 ./kind-delete.sh
 ```
