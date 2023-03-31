@@ -24,7 +24,7 @@ cd kind
 ```bash
 ./kind-create.sh
 ```
-- [Install Docker](./docs/images/kind.png)
+![](./docs/images/kind.png)
 
 ## Connect to Kubernetes cluster
 ```bash
