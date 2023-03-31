@@ -14,7 +14,7 @@ chmod +x ./kind
 sudo mv ./kind /usr/local/bin/kind
 ```
 
-## Clone scripts
+## Useful scripts
 ```bash
 git clone https://bitbucket.forge.avaya.com/scm/metam/kind.git
 cd kind
