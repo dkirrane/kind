@@ -36,9 +36,9 @@ curl -k https://confluence.forge.avaya.com/download/attachments/164769524/kaizen
 certs=("./ca-certs/ZscalerRootCertificate-2048-SHA256.crt" "./ca-certs/avayaitserverca2.crt" "./ca-certs/avayaitrootca2.crt" "./ca-certs/kaizen.crt")
 
 # Load certs into WSL2 Ubuntu Truststore
-echo "Load certs into WSL2 Ubuntu Truststore..."
-sudo cp ./ca-certs/*.crt /usr/local/share/ca-certificates/
-sudo update-ca-certificates
+# echo "Load certs into WSL2 Ubuntu Truststore..."
+# sudo cp ./ca-certs/*.crt /usr/local/share/ca-certificates/
+# sudo update-ca-certificates
 
 # Load certs into Kind cluster nodes
 while IFS= read -r container; do
