@@ -2,6 +2,9 @@
 kind is a tool for running local Kubernetes clusters using Docker container “nodes”.
 https://kind.sigs.k8s.io/
 
+## Prerequisties
+- [Install Docker](./docs/DOCKER.md)
+
 ## Install
 https://kind.sigs.k8s.io/docs/user/quick-start/#installation
 ```bash
@@ -21,6 +24,7 @@ cd kind
 ```bash
 ./kind-create.sh
 ```
+- [Install Docker](./docs/images/kind.png)
 
 ## Connect to cluster
 ```bash
