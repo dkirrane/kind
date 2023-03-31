@@ -4,7 +4,7 @@ Follow these instructions
 https://nickjanetakis.com/blog/install-docker-in-wsl-2-without-docker-desktop
 
 # docker login
-``bash
+```bash
 
 sudo bash -c 'cat <<EOT >> /etc/docker/daemon.json
 {
