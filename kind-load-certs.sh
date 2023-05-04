@@ -28,12 +28,23 @@ if [[ "$containers" == "" ]]; then
 fi
 
 # Download certs
-curl http://avayaitserverca2.avaya.com/pki/ZscalerRootCertificate-2048-SHA256.crt --create-dirs -o ./ca-certs/ZscalerRootCertificate-2048-SHA256.crt
-curl http://avayaitserverca2.avaya.com/pki/avayaitserverca2.crt --create-dirs -o ./ca-certs/avayaitserverca2.crt
-curl http://avayaitserverca2.avaya.com/pki/avayaitrootca2.crt --create-dirs -o ./ca-certs/avayaitrootca2.crt
+# https://confluence.forge.avaya.com/display/FORGE/Certificates
+curl -k http://avayaitserverca2.avaya.com/pki/ZscalerRootCertificate-2048-SHA256.crt --create-dirs -o ./ca-certs/ZscalerRootCertificate-2048-SHA256.crt
+curl -k http://avayaitserverca2.avaya.com/pki/avayaitrootca2.crt --create-dirs -o ./ca-certs/avayaitrootca2.crt
+curl -k http://avayaitserverca2.avaya.com/pki/avayaitserverca2.crt --create-dirs -o ./ca-certs/avayaitserverca2.crt
 curl -k https://confluence.forge.avaya.com/download/attachments/164769524/kaizen.crt --create-dirs -o ./ca-certs/kaizen.crt
 
-certs=("./ca-certs/ZscalerRootCertificate-2048-SHA256.crt" "./ca-certs/avayaitserverca2.crt" "./ca-certs/avayaitrootca2.crt" "./ca-certs/kaizen.crt")
+# Verify the certs are in PEM format. (Because they changed the avayait.. certs to DER format!!!!)
+openssl verify ./ca-certs/ZscalerRootCertificate-2048-SHA256.crt
+# openssl verify ./ca-certs/avayaitrootca2.crt
+# openssl verify ./ca-certs/avayaitserverca2.crt
+openssl verify ./ca-certs/kaizen.crt
+
+# Convert from DER to PEM
+openssl x509 -inform der -in ./ca-certs/avayaitrootca2.crt -out ./ca-certs/avayaitrootca2.pem
+openssl x509 -inform der -in ./ca-certs/avayaitserverca2.crt -out ./ca-certs/avayaitserverca2.pem
+
+certs=("./ca-certs/ZscalerRootCertificate-2048-SHA256.crt" "./ca-certs/avayaitrootca2.pem" "./ca-certs/avayaitserverca2.pem" "./ca-certs/kaizen.crt")
 
 # Load certs into WSL2 Ubuntu Truststore
 # echo "Load certs into WSL2 Ubuntu Truststore..."
