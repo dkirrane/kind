@@ -45,3 +45,11 @@ nodes:
       nodeRegistration:
         kubeletExtraArgs:
           node-labels: "topology.kubernetes.io/zone=dummy"
+
+containerdConfigPatches:
+  - |-
+    [plugins."io.containerd.grpc.v1.cri".registry.configs."metam-docker-hosted.forge.avaya.com".tls]
+      insecure_skip_verify = true
+
+    [plugins."io.containerd.grpc.v1.cri".registry.configs."flex-docker-hosted.forge.avaya.com".tls]
+      insecure_skip_verify = true

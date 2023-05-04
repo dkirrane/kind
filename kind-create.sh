@@ -11,7 +11,8 @@ kubectl cluster-info --context kind-kind
 kubectl get nodes
 
 # Fix ImagePullBackOff - https://github.com/kubernetes-sigs/kind/issues/1010
-${SCRIPT_PATH}/kind-load-certs.sh
+# NO longer needed see containerdConfigPatches
+# ${SCRIPT_PATH}/kind-load-certs.sh
 
 # Add regcred secret for Image Pull
 ${SCRIPT_PATH}/kind-load-image-pull-secret.sh
