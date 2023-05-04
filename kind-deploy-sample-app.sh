@@ -4,11 +4,15 @@ set -e
 
 kubectl get nodes
 
-read -p "Proceed to deploy application? " -n 1 -r
-echo
-if [[ ! $REPLY =~ ^[Yy]$ ]]
-then
-    [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
-fi
-
-kubectl apply -f ./sample/
+echo ""
+echo ""
+read -r -p "Do you want to deploy a sample Pod to kind? [y/N] " response
+case "$response" in
+    [yY][eE][sS]|[yY])
+        kubectl apply -f ./sample/
+        kubectl get pod simple-pod
+        ;;
+    *)
+        echo "skipping sample Pod deployment"
+        ;;
+esac
