@@ -14,4 +14,7 @@ kubectl get nodes
 ${SCRIPT_PATH}/kind-load-certs.sh
 
 # Add regcred secret for Image Pull
-${SCRIPT_PATH}/kind-load-certs.sh
+${SCRIPT_PATH}/kind-load-image-pull-secret.sh
+
+# Deploy sample Pod
+${SCRIPT_PATH}/kind-deploy-sample-app.sh
