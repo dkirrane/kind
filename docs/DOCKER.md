@@ -6,7 +6,7 @@ https://nickjanetakis.com/blog/install-docker-in-wsl-2-without-docker-desktop
 # docker config
 Update Docker config for the following:
 - Allow insecure access to forge docker registries you use
-- Allow remot access to Docker Daemon in WSL2 from Windows
+- Allow remote access to Docker Daemon in WSL2 from Windows
 ```bash
 
 sudo bash -c 'cat <<EOT >> /etc/docker/daemon.json
