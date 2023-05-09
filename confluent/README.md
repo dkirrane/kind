@@ -3,7 +3,7 @@ Deploys Confluent for Kubernetes (CFK)
 
 Each component can be optionally toggled off.
 
-By default it deploys 1 ZooKeeper, 1 Kafka, 1 SchemaRegistry, 1 ControlCenter
+By default it deploys 1 ZooKeeper, 1 Kafka, 1 Kafka Connect, 1 SchemaRegistry, 1 ControlCenter
 
 ![](./docs/images/cfk.jpg){height=50% width=50%}
 ![](./docs/images/topics.jpg){height=50% width=50%}
