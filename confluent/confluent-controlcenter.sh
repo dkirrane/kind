@@ -2,7 +2,6 @@
 set -e
 # set -euxo pipefail
 
-set -a; source .env; set +a
 SCRIPT_PATH="$(dirname -- "${BASH_SOURCE[0]}")"
 
 # View Control Center

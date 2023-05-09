@@ -4,7 +4,6 @@ set -e
 
 SCRIPT_PATH="$(dirname -- "${BASH_SOURCE[0]}")"
 
-
 kubectl cluster-info --context kind-kind
 kubectl get nodes
 
