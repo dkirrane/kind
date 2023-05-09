@@ -13,7 +13,7 @@ kubectl get nodes
 kubectl create namespace confluent --dry-run=client -o yaml | kubectl apply -f -
 
 helm repo add confluentinc https://packages.confluent.io/helm
-helm repo update
+helm repo update confluentinc
 
 helm upgrade --install confluent-operator confluentinc/confluent-for-kubernetes -n confluent
 
