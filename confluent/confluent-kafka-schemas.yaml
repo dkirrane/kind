@@ -1,0 +1,28 @@
+
+# https://docs.confluent.io/operator/current/co-api.html#tag/Schema
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: schema-payment
+  namespace: confluent
+data:
+  schema: |
+    {
+      "namespace": "io.confluent.examples.clients.basicavro",
+      "type": "record",
+      "name": "Payment",
+      "fields": [
+          {"name": "id", "type": "string"}
+      ]
+    }
+---
+apiVersion: platform.confluent.io/v1beta1
+kind: Schema
+metadata:
+  name: schema-payment
+  namespace: confluent
+spec:
+  data:
+    format: avro
+    configRef: schema-payment

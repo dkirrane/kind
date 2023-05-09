@@ -1,5 +1,5 @@
 # Overview
-Deploys Confluent Platform (ZooKeeper, Kafka, Kafka Connect, SchemaRegistry, ControlCenter)
+Confluent for Kubernetes (CFK) deploys Confluent Platform (ZooKeeper, Kafka, Kafka Connect, SchemaRegistry, ControlCenter)
 Each component can be optionally toggled off.
 By default it deploys 1 ZooKeeper, 1 Kafka, 1 SchemaRegistry, 1 ControlCenter
 
@@ -25,6 +25,18 @@ Instead it is better to pull the images locally and load them into the kind clus
 
 # View Control Center
 ./confluent-create.sh
+```
+
+# Create Kafka Topic
+```bash
+# Create Topics
+./confluent-create-topics.sh
+```
+
+# Create Kafka Schemas
+```bash
+# Create Topics
+./confluent-create-schemas.sh
 ```
 
 # Delete Kafka cluster
