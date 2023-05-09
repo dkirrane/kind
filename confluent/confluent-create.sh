@@ -2,7 +2,6 @@
 set -e
 # set -euxo pipefail
 
-set -a; source .env; set +a
 SCRIPT_PATH="$(dirname -- "${BASH_SOURCE[0]}")"
 
 
@@ -18,10 +17,4 @@ helm repo update
 
 helm upgrade --install confluent-operator confluentinc/confluent-for-kubernetes -n confluent
 
-kubectl apply -f ./confluent/confluent-platform.yaml
-
-# View Control Center
-kubectl -n confluent port-forward controlcenter-0 9021:9021
-sensible-browser http://localhost:9021
-
-# helm delete confluent-operator
+kubectl apply -f ${SCRIPT_PATH}/confluent-platform.yaml
