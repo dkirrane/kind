@@ -8,7 +8,16 @@ kubectl cluster-info --context kind-kind
 kubectl get nodes
 
 # Load Confluent Images (avoid kind having to pull images)
-${SCRIPT_PATH}/confluent-load-images-to-kind.sh
+echo ""
+read -r -p "Do you want to Load Confluent Images into the Kind cluster? [y/N] " response
+case "$response" in
+    [yY][eE][sS]|[yY])
+        ${SCRIPT_PATH}/confluent-load-images-to-kind.sh
+        ;;
+    *)
+        echo "Skipping loading of Confluent Images into the Kind"
+        ;;
+esac
 
 # Create Confluent Kafka cluster
 # ref: https://docs.confluent.io/operator/current/co-quickstart.html

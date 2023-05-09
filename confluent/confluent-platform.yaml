@@ -73,10 +73,14 @@ spec:
     # connect:
     # - name: connect
     #   url: http://connect.confluent.svc.cluster.local:8083
-# confluent.controlcenter.internal.topics.replication=1
-# confluent.controlcenter.command.topic.replication=1
-# confluent.monitoring.interceptor.topic.replication=1
-# confluent.metrics.topic.replication=1
+  configOverrides:
+    server:
+      # Config to allow a single Kafka Broker
+      - confluent.controlcenter.internal.topics.replication=1
+      - confluent.controlcenter.command.topic.replication=1
+      - confluent.monitoring.interceptor.topic.replication=1
+      - confluent.metrics.topic.replication=1
+      # - confluent.support.metrics.enable=false
 ---
 apiVersion: platform.confluent.io/v1beta1
 kind: SchemaRegistry
