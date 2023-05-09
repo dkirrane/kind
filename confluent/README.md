@@ -1,7 +1,10 @@
 # Overview
-Confluent for Kubernetes (CFK) deploys Confluent Platform (ZooKeeper, Kafka, Kafka Connect, SchemaRegistry, ControlCenter)
+Deploys Confluent for Kubernetes (CFK)
 Each component can be optionally toggled off.
 By default it deploys 1 ZooKeeper, 1 Kafka, 1 SchemaRegistry, 1 ControlCenter
+
+![](./docs/images/cfk.jpg)
+![](./docs/images/topics.jpg)
 
 ref: https://docs.confluent.io/operator/current/co-quickstart.html
 
