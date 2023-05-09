@@ -4,9 +4,11 @@ set -e
 
 SCRIPT_PATH="$(dirname -- "${BASH_SOURCE[0]}")"
 
-
 kubectl cluster-info --context kind-kind
 kubectl get nodes
+
+# Load Confluent Images (avoid kind having to pull images)
+${SCRIPT_PATH}/confluent-load-images-to-kind.sh
 
 # Create Confluent Kafka cluster
 # ref: https://docs.confluent.io/operator/current/co-quickstart.html
