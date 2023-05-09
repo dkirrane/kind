@@ -15,20 +15,20 @@ Instead it is better to pull the images locally and load them into the kind clus
 
 ```bash
 # Load Confluent Images into Kind
-confluent-load-images-to-kind.sh
+./confluent-load-images-to-kind.sh
 ```
 
 # Create Kafka cluster
 ```bash
 # Create Kafka Cluster
-confluent-create.sh
+./confluent-create.sh
 
 # View Control Center
-confluent-create.sh
+./confluent-create.sh
 ```
 
 # Delete Kafka cluster
 ```bash
 # Delete Kafka Cluster
-confluent-delete.sh
+./confluent-delete.sh
 ```
