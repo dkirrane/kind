@@ -53,6 +53,12 @@ kubectl get nodes
 ./kind-delete.sh
 ```
 
+# WSL2 Docker cleanup
+From time to time you may want to cleanup Docker containers, unused images, volumes and networks.
+```bash
+docker system prune --all
+```
+
 # References:
 - https://kind.sigs.k8s.io/docs/user/quick-start/
 - https://kind.sigs.k8s.io/docs/user/using-wsl2/

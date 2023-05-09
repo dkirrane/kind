@@ -11,3 +11,6 @@ kubectl get nodes
 # Delete Confluent Kafka cluster
 kubectl delete -f ${SCRIPT_PATH}/confluent-platform.yaml
 helm uninstall confluent-operator -n confluent
+
+# Force delete Pod stuck in Terminating state
+# kubectl delete pod schemaregistry-0 --grace-period=0 --force --namespace confluent
