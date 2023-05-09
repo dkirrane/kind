@@ -4,7 +4,7 @@ set -e
 
 SCRIPT_PATH="$(dirname -- "${BASH_SOURCE[0]}")"
 
-# Pull images to WSL2 Docker
+# Pull images to local WSL2 Docker
 CP_VERSION="7.4.0"
 docker pull confluentinc/confluent-init-container:2.6.0
 docker pull confluentinc/cp-zookeeper:${CP_VERSION}
