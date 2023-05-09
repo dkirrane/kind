@@ -1,12 +1,12 @@
 # Overview
 Deploys Confluent for Kubernetes (CFK)
+
 Each component can be optionally toggled off.
+
 By default it deploys 1 ZooKeeper, 1 Kafka, 1 SchemaRegistry, 1 ControlCenter
 
 ![](./docs/images/cfk.jpg){height=50% width=50%}
 ![](./docs/images/topics.jpg){height=50% width=50%}
-
-ref: https://docs.confluent.io/operator/current/co-quickstart.html
 
 # Confluent Platform to Kafka Versions
 The current version is 7.4.0 with is Kafka 3.4
@@ -14,6 +14,7 @@ ref: https://docs.confluent.io/platform/current/installation/versions-interopera
 
 # Pre Pull Images
 Confluent Images are large enough to make it slow to have Kind always pull the Confluent images.
+
 Instead it is better to pull the images locally and load them into the kind cluster nodes.
 
 ```bash
@@ -47,3 +48,6 @@ Instead it is better to pull the images locally and load them into the kind clus
 # Delete Kafka Cluster
 ./confluent-delete.sh
 ```
+
+# References
+- https://docs.confluent.io/operator/current/co-quickstart.html
