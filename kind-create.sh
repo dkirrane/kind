@@ -10,6 +10,8 @@ kind create cluster --config=kind-config.yaml
 kubectl cluster-info --context kind-kind
 kubectl get nodes
 
+${SCRIPT_PATH}/kind-kubeconfig.sh
+
 # Fix ImagePullBackOff - https://github.com/kubernetes-sigs/kind/issues/1010
 # NO longer needed see containerdConfigPatches
 # ${SCRIPT_PATH}/kind-load-certs.sh
