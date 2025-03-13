@@ -3,19 +3,19 @@
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 nodes:
-- role: control-plane
-  # Fix Image Pull - https://github.com/kubernetes-sigs/kind/issues/1010
-  extraMounts:
-   - hostPath: /mnt/c/ca-certs/ZscalerRootCertificate-2048-SHA256.crt
-     containerPath: /usr/share/ca-certificates/corporate.crt
-  # Ingress
-  kubeadmConfigPatches:
-    - |
-      kind: InitConfiguration
-      nodeRegistration:
-        kubeletExtraArgs:
-          node-labels: "ingress-ready=true"
-  extraPortMappings:
+  - role: control-plane
+    # If required - Fix Image Pull - https://github.com/kubernetes-sigs/kind/issues/1010
+    # extraMounts:
+    #  - hostPath: /mnt/c/ca-certs/Zscaler.crt
+    #    containerPath: /usr/share/ca-certificates/corporate.crt
+    # Ingress
+    kubeadmConfigPatches:
+      - |
+        kind: InitConfiguration
+        nodeRegistration:
+          kubeletExtraArgs:
+            node-labels: "ingress-ready=true"
+    extraPortMappings:
       - containerPort: 30080
         hostPort: 80
         listenAddress: 127.0.0.1
@@ -24,32 +24,30 @@ nodes:
         hostPort: 443
         listenAddress: 127.0.0.1
         protocol: TCP
-- role: worker
-  kubeadmConfigPatches:
-    - |
-      kind: JoinConfiguration
-      nodeRegistration:
-        kubeletExtraArgs:
-          node-labels: "topology.kubernetes.io/zone=dummy"
-- role: worker
-  kubeadmConfigPatches:
-    - |
-      kind: JoinConfiguration
-      nodeRegistration:
-        kubeletExtraArgs:
-          node-labels: "topology.kubernetes.io/zone=dummy"
-- role: worker
-  kubeadmConfigPatches:
-    - |
-      kind: JoinConfiguration
-      nodeRegistration:
-        kubeletExtraArgs:
-          node-labels: "topology.kubernetes.io/zone=dummy"
+  - role: worker
+    kubeadmConfigPatches:
+      - |
+        kind: JoinConfiguration
+        nodeRegistration:
+          kubeletExtraArgs:
+            node-labels: "topology.kubernetes.io/zone=dummy"
+  - role: worker
+    kubeadmConfigPatches:
+      - |
+        kind: JoinConfiguration
+        nodeRegistration:
+          kubeletExtraArgs:
+            node-labels: "topology.kubernetes.io/zone=dummy"
+  - role: worker
+    kubeadmConfigPatches:
+      - |
+        kind: JoinConfiguration
+        nodeRegistration:
+          kubeletExtraArgs:
+            node-labels: "topology.kubernetes.io/zone=dummy"
 
+# If required - configure containerd to allow untrusted registry
 containerdConfigPatches:
   - |-
-    [plugins."io.containerd.grpc.v1.cri".registry.configs."metam-docker-hosted.forge.avaya.com".tls]
-      insecure_skip_verify = true
-
-    [plugins."io.containerd.grpc.v1.cri".registry.configs."flex-docker-hosted.forge.avaya.com".tls]
+    [plugins."io.containerd.grpc.v1.cri".registry.configs."docker.registry.mycompany.com".tls]
       insecure_skip_verify = true

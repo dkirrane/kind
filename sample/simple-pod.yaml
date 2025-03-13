@@ -4,8 +4,9 @@ metadata:
   name: simple-pod
 spec:
   containers:
-  - name: simple-pod
-    image: metam-docker-hosted.forge.avaya.com/cc-init-commands:0.2.50
-    command: ['sh', '-c', 'echo "Hello, Kubernetes!" && sleep 3600']
+    - name: simple-pod
+      # image: https://ghcr.io/.../cc-init-commands:0.2.50
+      image: busybox
+      command: ["sh", "-c", 'echo "Hello, Kubernetes!" && sleep 3600']
   imagePullSecrets:
-  - name: regcred
+    - name: regcred
